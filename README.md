@@ -10,7 +10,7 @@ rails g model Tag name:string
 rails g model ArticlesTags article_id:integer tag_id:integer
 ```
 
-+ create associations
++ create associations1
 ```rb
 # model/article.rb
 class Article < ApplicationRecord
@@ -20,6 +20,24 @@ end
 # model/tag.rb
 class Tag < ApplicationRecord
     has_and_belongs_to_many :articles
+end
+```
+
++ create associations2(Maybe this is another way)
+```rb
+class Article < ActiveRecord::Base
+    has_many :articles_tags
+    has_many :tags, :through => :articles_tags
+end
+
+class ArticlesTags < ActiveRecord::Base
+    belongs_to :article
+    belongs_to :tag
+end
+
+class Tag < ActiveRecord::Base
+    has_many :articles_tags
+    has_many :contacts, :through => :articles_tags
 end
 ```
 
