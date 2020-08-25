@@ -12,6 +12,13 @@ rails g model Tag name:string
 
 # 多对多 关系体：一般命名：主体1s + 主体2 (主体1/主体2 哪个更重要，就把哪个放前面)
 rails g model ArticlesTag article_id:integer tag_id:integer
+
+# 推荐用下面的方式
+# 1. 可以产生 belongs_to 关系
+# 2. 可以 migration 中产生如下关系对
+    # t.references :article, null: false, foreign_key: true
+    # t.references :tag, null: false, foreign_key: true
+rails g model ArticlesTag article:references tag:references
 ```
 
 ### solution1
