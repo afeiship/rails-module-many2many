@@ -1,16 +1,22 @@
 # rails-module-many2many
 > Rails module for many to many model associations.
 
-
 ## step by step
-+ create models:
+- create models:
 ```bash
+# 多对多 主体1
 rails g model Article name:string published_on:date content:text
+
+# 多对多 主体2
 rails g model Tag name:string
-rails g model ArticlesTags article_id:integer tag_id:integer
+
+# 多对多 关系体：一般命名：主体1s + 主体2 (主体1/主体2 哪个更重要，就把哪个放前面)
+rails g model ArticlesTag article_id:integer tag_id:integer
 ```
 
-+ create associations1
+### solution1
+> 这种方式会自动处理好 destroy 的情况。
+- create associations1
 ```rb
 # model/article.rb
 class Article < ApplicationRecord
@@ -23,7 +29,26 @@ class Tag < ApplicationRecord
 end
 ```
 
-+ create associations2(Maybe this is another way)
+### destroy
+```rb
+a1 = Article.first
+# will show tags
+a1.tags
+
+# will show many records
+ArticlesTag.all
+
+# destroy
+a1.destory
+
+# 相关联的内容会被删除掉
+a1.tags # []
+ArticlesTag.all # []
+```
+
+
+### solution2
+- create associations2(Maybe this is another way)
 ```rb
 class Article < ActiveRecord::Base
     has_many :articles_tags

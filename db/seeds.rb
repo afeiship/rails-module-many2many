@@ -27,13 +27,12 @@ robin = Article.create! name: "Robin", content: <<-ARTICLE
 Robin is the name of several fictional characters appearing in comic books published by DC Comics, originally created by Bob Kane, Bill Finger and Jerry Robinson, as a junior counterpart to DC Comics superhero Batman. The team of Batman and Robin is commonly referred to as the Dynamic Duo or the Caped Crusaders. (from Wikipedia)
 ARTICLE
 
-
 # create tags:
-Tag.create(:name=>"tag1")
-Tag.create(:name=>"tag2")
-Tag.create(:name=>"tag3")
-Tag.create(:name=>"tag4")
-Tag.create(:name=>"tag5")
-Tag.create(:name=>"tag6")
-Tag.create(:name=>"tag7")
-Tag.create(:name=>"tag8")
+Tag.create(:name => "tag1")
+Tag.create(:name => "tag2")
+Tag.create(:name => "tag3")
+Tag.create(:name => "tag4")
+Tag.create(:name => "tag5")
+Tag.create(:name => "tag6")
+Tag.create(:name => "tag7")
+Tag.create(:name => "tag8")
