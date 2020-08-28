@@ -23,6 +23,7 @@ rails g model ArticlesTag article:references tag:references
 
 ### solution1
 > 这种方式会自动处理好 destroy 的情况。
+> 这种简洁的方式，适合于你的 关联表 `ArticlesTag` 这个没有什么特别的含义，可以直接使用这种。
 - create associations1
 ```rb
 # model/article.rb
