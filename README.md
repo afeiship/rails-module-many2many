@@ -18,6 +18,7 @@ rails g model ArticlesTag article_id:integer tag_id:integer
 # 2. 可以 migration 中产生如下关系对
     # t.references :article, null: false, foreign_key: true
     # t.references :tag, null: false, foreign_key: true
+# 3. 这里注意顺便 article/tag，后面的references 也对应顺序
 rails g model ArticlesTag article:references tag:references
 ```
 
